@@ -20,7 +20,7 @@ JSON_FILE = os.path.join(parent, "src", "static", "activities.json")
 # TODO: Move into nike_sync
 BASE_URL = "https://api.nike.com/sport/v3/me"
 TOKEN_REFRESH_URL = "https://unite.nike.com/tokenRefresh"
-NIKE_CLIENT_ID = "HlHa2Cje3ctlaOqnxvgZXNaAs7T9nAuH"
+NIKE_CLIENT_ID = "VhAeafEGJ6G8e9DxRUz8iE50CZ9MiJMG"
 BASE_TIMEZONE = "Asia/Shanghai"
 
 
