@@ -2,7 +2,7 @@ module.exports = {
   pathPrefix: '/running_page', // Change to `/running_page` when running on github pages
   siteMetadata: {
     siteTitle: 'Running Page',
-    siteUrl: 'https://run.betterme.xin',
+    siteUrl: 'https://jason-cqtan.github.io/running_page/',
     logo: 'https://z4a.net/images/2022/07/21/logo.jpg',
     description: 'Personal site and blog',
     navLinks: [
