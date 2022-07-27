@@ -4,7 +4,7 @@
   width: 100%;
   min-width: 300px;
   font-variant: tabular-nums;
-  margin: 2rem 0 5rem 0;
+  margin: 2rem 0 1rem 0;
 
   thead {
     color: $light;
@@ -34,7 +34,7 @@
 
 .tableContainer {
   width: 100%;
-  overflow-x: scroll;
+  overflow: hidden;
 }
 
 .runDate {

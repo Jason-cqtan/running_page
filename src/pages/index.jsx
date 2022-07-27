@@ -206,7 +206,6 @@ const Index = () => {
           )}
         </div>
       </div>
-      <footer style={{textAlign:"center"}}>由 <a target={"__blank"} href="https://github.com/yihong0618/running_page"><u>running_page</u></a> 强力驱动</footer>
     </Layout>
   );
 };

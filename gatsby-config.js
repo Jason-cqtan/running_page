@@ -14,6 +14,10 @@ module.exports = {
         name: 'Twitter',
         url: 'https://twitter.com/O_achengtan',
       },
+      {
+        name: 'About',
+        url: 'https://github.com/yihong0618/running_page'
+      }
     ],
   },
   plugins: [
