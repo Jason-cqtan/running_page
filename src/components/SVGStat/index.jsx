@@ -4,9 +4,9 @@ import GridSvg from 'assets/grid.svg';
 import styles from './style.module.scss';
 
 const SVGStat = () => (
-  <div>
+  <div className={styles.width100}>
     <GitHubSvg className={styles.runSVG} />
-    <GridSvg className={styles.runSVG} />
+    <GridSvg className={styles.runSVG2}/>
   </div>
 );
 

@@ -2,7 +2,7 @@
 
 .runTable {
   width: 100%;
-  min-width: 700px;
+  min-width: 300px;
   font-variant: tabular-nums;
   margin: 2rem 0 5rem 0;
 
@@ -34,7 +34,7 @@
 
 .tableContainer {
   width: 100%;
-  overflow-x: scroll;
+  padding-bottom: 4rem;
 }
 
 .runDate {
