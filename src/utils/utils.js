@@ -38,9 +38,9 @@ const formatRunTime = (distance,pace) => {
     return seconds + 's';
   }
   if (minutes >= 60) {
-    let h = Math.floor(minutes/60)
-    let m = minutes%60
-    return h + (m ? (':' + ((m<10) ? '0' + m : m)) : ':00');
+    let hour = Math.floor(minutes/60)
+    let min = minutes%60
+    return `${hour}:${min.toFixed(0).toString().padStart(2, '0')}`
   } else {
     return "0:" + minutes;
   }
