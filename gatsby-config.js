@@ -1,5 +1,7 @@
+/* eslint-disable no-undef */
+// eslint-disable-next-line no-undef
 module.exports = {
-  pathPrefix: '/running_page', // Change to `/running_page` when running on github pages
+  pathPrefix: process.env.PATH_PREFIX || '/',
   siteMetadata: {
     siteTitle: 'Running Page',
     siteUrl: 'https://jason-cqtan.github.io/running_page/',
@@ -23,6 +25,15 @@ module.exports = {
   plugins: [
     'gatsby-transformer-json',
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-offline',
+
+    {
+      resolve: 'gatsby-plugin-vercel',
+      options: {
+        // (optional) Prints metrics in the console when true
+        debug: false,
+      },
+    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -38,7 +49,7 @@ module.exports = {
     {
       resolve: 'gatsby-alias-imports',
       options: {
-        rootFolder: './',
+        rootFolder: '.',
       },
     },
     {
@@ -68,9 +79,9 @@ module.exports = {
         start_url: '/',
         background_color: '#e1e1e1',
         theme_color: '#e1e1e1',
-        display: 'minimal-ui',
+        display: 'standalone',
         icon: 'src/images/favicon.png', // This path is relative to the root of the site.
       },
-    }
+    },
   ],
 };

@@ -85,7 +85,6 @@ class JoyrunAuth:
 
 
 class Joyrun:
-
     base_url = "https://api.thejoyrun.com"
 
     def __init__(self, user_name="", identifying_code="", uid=0, sid=""):
@@ -170,7 +169,14 @@ class Joyrun:
             return []
         try:
             # eval is bad but easy maybe change it later
-            points = eval(content.replace("-", ","))
+            # TODO fix this
+            # just an easy way to fix joyrun issue, need to refactor this shit
+            # -[34132812,-118126177]- contains `-` so I just fix it by replace
+            try:
+                points = eval(content.replace("]-[", "],["))
+            except Exception as e:
+                print(str(e))
+                print(f"Points: {str(points)} can not eval")
             points = [[p[0] / 1000000, p[1] / 1000000] for p in points]
         except Exception as e:
             print(str(e))
@@ -200,7 +206,7 @@ class Joyrun:
         gpx = gpxpy.gpx.GPX()
         gpx.nsmap["gpxtpx"] = "http://www.garmin.com/xmlschemas/TrackPointExtension/v1"
         gpx_track = gpxpy.gpx.GPXTrack()
-        gpx_track.name = "gpx from keep"
+        gpx_track.name = "gpx from joyrun"
         gpx.tracks.append(gpx_track)
 
         # Create first segment in our GPX track:
@@ -239,7 +245,12 @@ class Joyrun:
                     run_points_data, start_time, end_time
                 )
                 download_joyrun_gpx(gpx_data, str(joyrun_id))
-        heart_rate_list = eval(run_data["heartrate"]) if run_data["heartrate"] else None
+        try:
+            heart_rate_list = (
+                eval(run_data["heartrate"]) if run_data["heartrate"] else None
+            )
+        except:
+            print(f"Heart Rate: can not eval for {str(heart_rate_list)}")
         heart_rate = None
         if heart_rate_list:
             heart_rate = int(sum(heart_rate_list) / len(heart_rate_list))
@@ -255,9 +266,9 @@ class Joyrun:
         # only for China now
         end_local = adjust_time(end, BASE_TIMEZONE)
         location_country = None
-        # joyrun location is kind of fucking strage, so I decide not use it, if you want use it, uncomment this two lines
-        # if run_data["city"] or run_data["province"]:
-        #     location_country = str(run_data["city"]) + " " + str(run_data["province"])
+        # joyrun location is kind of fucking strange, you can comments this two lines to make a better location
+        if run_data["city"] or run_data["province"]:
+            location_country = str(run_data["city"]) + ":" + str(run_data["province"])
         d = {
             "id": int(joyrun_id),
             "name": "run from joyrun",
@@ -308,7 +319,7 @@ if __name__ == "__main__":
         "--with-gpx",
         dest="with_gpx",
         action="store_true",
-        help="get all keep data to gpx and download",
+        help="get all joyrun data to gpx and download",
     )
     parser.add_argument(
         "--from-uid-sid",
