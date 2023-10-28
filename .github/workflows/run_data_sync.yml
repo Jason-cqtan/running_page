@@ -24,8 +24,8 @@ env:
   RUN_TYPE: keep # support strava/nike/garmin/garmin_cn/keep/only_gpx/only_fit/nike_to_strava/strava_to_garmin/strava_to_garmin_cn/garmin_to_strava/garmin_to_strava_cn/codoon, Please change the 'pass' it to your own
   ATHLETE: Jason
   TITLE: Jason Running
-  MIN_GRID_DISTANCE: 10 # change min distance here
-  TITLE_GRID: Over 10km Runs # also here
+  MIN_GRID_DISTANCE: 15 # change min distance here
+  TITLE_GRID: Over 15km Runs # also here
   GITHUB_NAME: Jason
   GITHUB_EMAIL: uniqueacheng@gmail.com
 
@@ -34,7 +34,7 @@ env:
   # Dont making this huge, just picking points you needing. https://developers.google.com/maps/documentation/utilities/polylineutility using this tool to making your polyline
   IGNORE_POLYLINE: 'ktjrFoemeU~IorGq}DeB'
   IGNORE_RANGE: 10 # Unit meter
-  SAVE_DATA_IN_GITHUB_CACHE: true # if you deploy in the vercal, check the README
+  SAVE_DATA_IN_GITHUB_CACHE: false # if you deploy in the vercal, check the README
   DATA_CACHE_PREFIX: 'track_data'
   BUILD_GH_PAGES: true # If you do not need GitHub Page please set it to `false`
 
