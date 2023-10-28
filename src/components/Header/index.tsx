@@ -24,6 +24,7 @@ const Header = () => {
               key={i}
               href={n.url}
               className="light-gray link dim f6 f5-l mr3 mr4-l"
+              target='_blank'
             >
               {n.name}
             </a>

@@ -1,7 +1,7 @@
 import React from 'react';
 import YearStat from '@/components/YearStat';
 import useActivities from '@/hooks/useActivities';
-import { INFO_MESSAGE } from '@/utils/const';
+import { INFO_MESSAGE,CHINESE_LOCATION_INFO_MESSAGE_FIRST,CHINESE_LOCATION_INFO_MESSAGE_SECOND } from '@/utils/const';
 
 const YearsStat = ({ year, onClick }: { year: string, onClick: (_year: string) => void }) => {
   const { years } = useActivities();
@@ -18,6 +18,9 @@ const YearsStat = ({ year, onClick }: { year: string, onClick: (_year: string) =
         <p style={{ lineHeight: 1.8 }}>
           {INFO_MESSAGE(years.length, year)}
           <br />
+          {CHINESE_LOCATION_INFO_MESSAGE_FIRST}
+          <br />
+          {CHINESE_LOCATION_INFO_MESSAGE_SECOND}
         </p>
       </section>
       <hr color="red" />
