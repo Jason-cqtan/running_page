@@ -1,6 +1,6 @@
 import os
 from collections import namedtuple
-import yaml # type: ignore
+import yaml
 
 # getting content root directory
 current = os.path.dirname(os.path.realpath(__file__))
