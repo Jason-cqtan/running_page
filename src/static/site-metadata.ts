@@ -9,12 +9,21 @@ interface ISiteMetadataResult {
   }[];
 }
 
+const getBasePath = () => {
+  const baseUrl = import.meta.env.BASE_URL;
+  return baseUrl === '/' ? '' : baseUrl;
+};
+
 const data: ISiteMetadataResult = {
   siteTitle: 'Running Page',
   siteUrl: 'https://jason-cqtan.github.io/running_page/',
   logo: 'https://z4a.net/images/2023/10/28/running_9604882.png',
   description: 'Running Record',
   navLinks: [
+    {
+      name: 'Summary',
+      url: `${getBasePath()}/summary`,
+    },
     {
       name: 'Blog',
       url: 'https://betterme.xin',
