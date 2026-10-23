@@ -78,11 +78,11 @@ const formatRunTime = (moving_time: string): string => {
     return seconds + 's';
   }
   if (minutes >= 60) {
-    let hour = Math.floor(minutes/60)
-    let min = minutes%60
-    return `${hour}:${min.toFixed(0).toString().padStart(2, '0')}`
+    let hour = Math.floor(minutes / 60);
+    let min = minutes % 60;
+    return `${hour}:${min.toFixed(0).toString().padStart(2, '0')}`;
   } else {
-    return "0:" + minutes;
+    return '0:' + minutes;
   }
 };
 
