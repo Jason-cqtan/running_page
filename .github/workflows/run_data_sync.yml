@@ -112,6 +112,9 @@ jobs:
             ${{ env.DATA_CACHE_PREFIX }}-${{ github.sha }}-
             ${{ env.DATA_CACHE_PREFIX }}-
 
+      - name: Restore source files overwritten by cache
+        run: git checkout -- assets/index.tsx
+
       - name: Run sync Nike script
         if: env.RUN_TYPE == 'nike'
         run: |
