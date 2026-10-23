@@ -255,8 +255,8 @@ export const ContributionHeatmap = memo(function ContributionHeatmap({
 
   const dayLabels =
     locale === 'zh'
-      ? ['一', '', '三', '', '五', '', '']
-      : ['M', '', 'W', '', 'F', '', ''];
+      ? ['', '二', '', '四', '', '六', '']
+      : ['', 'Tue', '', 'Thu', '', 'Sat', ''];
 
   // Which display types are present this year
   const presentDisplayTypes = useMemo(() => {
