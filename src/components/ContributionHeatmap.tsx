@@ -12,7 +12,7 @@ import { useLocale } from '../hooks/useLocale';
 const MAX_VISIBLE_YEARS = 10;
 // One week column: h-3/w-3 cell (12px) + gap-[3px]
 const HEATMAP_WEEK_WIDTH = 15;
-const weekdayIds = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
+const weekdayIds = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 
 interface HeatmapProps {
   activities: Activity[];
@@ -145,7 +145,8 @@ function buildYearGrid(
   const maxVal = Math.max(...dayMap.values(), 1);
 
   const startDate = new Date(yr, 0, 1);
-  const startDay = startDate.getDay();
+  // Monday-first rows: Mon=0 ... Sun=6
+  const startDay = (startDate.getDay() + 6) % 7;
   const grid: {
     date: string;
     distance: number;
@@ -254,8 +255,8 @@ export const ContributionHeatmap = memo(function ContributionHeatmap({
 
   const dayLabels =
     locale === 'zh'
-      ? ['', '一', '', '三', '', '五', '']
-      : ['', 'M', '', 'W', '', 'F', ''];
+      ? ['一', '', '三', '', '五', '', '']
+      : ['M', '', 'W', '', 'F', '', ''];
 
   // Which display types are present this year
   const presentDisplayTypes = useMemo(() => {
